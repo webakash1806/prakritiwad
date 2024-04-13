@@ -88,7 +88,7 @@ const Home = () => {
                     <button className='bg-[#A22EFF] rounded-[3px] mt-2 p-1 py-2 text-[0.9rem] font-bold text-white'>आगे पढ़े</button>
                 </div>
             </div>
-            <div className='md:p-4 p-1 rounded-md shadow-[0px_0px_5px_#808080] mt-10 flex flex-col gap-3'>
+            <div className='md:p-4 p-1 rounded-md lg:w-[62rem] shadow-[0px_0px_5px_#808080] mt-10 flex flex-col gap-3'>
                 <h1 className='text-[1.3rem] font-semibold'>Add Post...</h1>
                 <input type="text" placeholder='Title...' className='border border-black w-full p-2 outline-none rounded' />
                 <AddPost />

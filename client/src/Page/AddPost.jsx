@@ -86,9 +86,9 @@ class AddPost extends React.Component {
                 return;
             }
 
-            const imageInfo = await FileUpload(imageFile);
+            // const imageInfo = await FileUpload(imageFile);
 
-            this.insertImage(editor, imageInfo.url);
+            // this.insertImage(editor, imageInfo.url);
 
         }.bind(this);
     }
