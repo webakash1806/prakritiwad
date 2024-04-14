@@ -1,9 +1,5 @@
 import React from 'react'
-import { CiFacebook } from "react-icons/ci";
-import { CiInstagram } from "react-icons/ci";
-import { CiTwitter } from "react-icons/ci";
-import { FaWhatsapp } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
+
 import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
