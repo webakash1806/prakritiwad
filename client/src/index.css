@@ -12,10 +12,16 @@
     }
 }
 
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 .hero-img {
     background-image: linear-gradient(#00000043, #0000008c), url('./assets/Image/mainBg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #000;
+    width: 100vw;
 }

@@ -4,6 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { MdEmail } from "react-icons/md"
+import Team from '../Components/Team';
 const Contact = () => {
     return (
         <div className='bg-white mt-16 flex flex-col items-center justify-center w-[100%] pb-[2rem] gap-[2rem] '>
@@ -47,17 +48,20 @@ const Contact = () => {
             <div className='flex gap-[2rem] flex-col lg:flex-row'>
                 <div className='w-[15rem] flex flex-col gap-[0.3rem] items-center'>
                     <Link className='p-[0.8rem]  rounded-[5rem] bg-[#5B31EE]'><FaLocationDot className='text-[1.5rem] text-white' /></Link>
-                    <p className='text-center text-white'><span className='text-[1rem] font-extrabold tracking-[0.1rem]'>Address: </span>BHU CDC Building Varanasi 221002  </p>
+                    <p className='text-center text-black'><span className='text-[1rem] font-extrabold tracking-[0.1rem]'>Address: </span>BHU CDC Building Varanasi 221002  </p>
                 </div>
                 <div className='w-[15rem] flex flex-col gap-[0.3rem] items-center'>
                     <Link className='p-[0.8rem] rounded-[5rem] bg-[#5B31EE]'><FaPhoneAlt className='text-[1.5rem] text-white' /></Link>
-                    <p className='text-center text-white'><span className='text-[1rem] font-extrabold tracking-[0.1rem]'>Phone: </span>+91 9876543210</p>
+                    <p className='text-center text-black'><span className='text-[1rem] font-extrabold tracking-[0.1rem]'>Phone: </span>+91 6387404696 <br />
+                        +91 85309 06608 <br /> +91 9334340112
+                    </p>
                 </div>
                 <div className='w-[15rem] flex flex-col gap-[0.3rem] items-center'>
                     <Link className='p-[0.8rem] rounded-[5rem] bg-[#5B31EE]'><MdEmail className='text-[1.5rem] text-white' /></Link>
-                    <p className='text-center text-white'><span className='text-[1rem] font-extrabold tracking-[0.1rem]'>Email: </span>info@prakritiwad.com</p>
+                    <p className='text-center text-black'><span className='text-[1rem] font-extrabold tracking-[0.1rem]'>Email: </span>info@prakritiwad.com</p>
                 </div>
             </div>
+            <Team />
 
         </div>
     )
