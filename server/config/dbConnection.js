@@ -8,7 +8,7 @@ mongoose.set('strictQuery', false)
 const connectionToDB = async () => {
     try {
         const { connection } = await mongoose.connect(
-            process.env.MONGO_URI
+            process.env.MONGODB_URL
         )
         if (connection) {
             console.log(`connected too MONGODB${connection.host}`)
