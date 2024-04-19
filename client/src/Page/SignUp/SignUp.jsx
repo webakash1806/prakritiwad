@@ -11,27 +11,27 @@ const SignUp = () => {
                     <input
                         type="text"
                         placeholder="Enter name..."
-                        className="border w-full rounded-[3px] outline-none p-1 text-[16px]" />
+                        className="border w-full rounded-[3px] bg-white outline-none p-1 text-[16px]" />
                 </div>
                 <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem]">
                     <label htmlFor="">Email</label>
                     <input
                         type="text"
                         placeholder="Enter email..."
-                        className="border w-full rounded-[3px] outline-none p-1 text-[16px]" />
+                        className="border w-full rounded-[3px] bg-white outline-none p-1 text-[16px]" />
                 </div>
                 <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem]">
                     <label htmlFor="">Password</label>
 
                     <input
                         placeholder="Enter password..."
-                        type="password" className="border w-full rounded-[3px] outline-none p-1" />
+                        type="password" className="border w-full bg-white rounded-[3px] outline-none p-1" />
                 </div>
                 <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem]">
                     <label htmlFor="">Confirm Password</label>
                     <input
                         placeholder="Enter confirm password..."
-                        type="password" className="border w-full rounded-[3px] outline-none p-1" />
+                        type="password" className="border w-full bg-white rounded-[3px] outline-none p-1" />
                 </div>
                 <button className='text-center bg-[#A22EFF] rounded-md p-2 m-[1rem_0.5rem] xs:m-[1rem_1.5rem] hover:bg-[#bd4aff] duration-300 text-white'>Sign Up</button>
             </form>

@@ -15,22 +15,22 @@ const Contact = () => {
                         <div className='flex flex-col justify-between gap-2 lg:flex-row '>
                             <div className='flex flex-col gap-[0.3rem] xl:w-full   '>
                                 <p>FULL NAME</p>
-                                <input className='p-2 ' type="text" placeholder='Name' />
+                                <input className='p-2 text-black bg-white rounded' type="text" placeholder='Name' />
                             </div>
                             <div className='flex flex-col gap-[0.3rem] w-full '>
                                 <p>EMAIL ADDRESS</p>
-                                <input className='p-2 ' type="email" placeholder='Email' />
+                                <input className='p-2 text-black bg-white rounded' type="email" placeholder='Email' />
                             </div>
                         </div>
                         <div className='flex flex-col gap-[0.3rem]'>
                             <p>SUBJECT</p>
-                            <input type="text" placeholder='Message' className='p-2' />
+                            <input type="text" placeholder='Message' className='p-2 text-black bg-white rounded' />
                         </div>
                         <div className='flex flex-col gap-[0.3rem]'>
                             <p>MESSAGE</p>
-                            <textarea name="Message" placeholder='Message' className='h-[5rem] w-full resize-none p-2'></textarea>
+                            <textarea name="Message" placeholder='Message' className='h-[5rem] w-full resize-none p-2 text-black rounded bg-white'></textarea>
                         </div>
-                        <button className='p-[0.5rem] px-[2rem] text-white rounded-[0.5rem] bg-[#A22EFF] w-fit'>Send Message</button>
+                        <button className='p-[0.5rem] px-[2rem] text-white rounded bg-[#A22EFF] w-fit'>Send Message</button>
                     </form>
                 </div>
                 <div className=''>

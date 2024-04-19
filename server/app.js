@@ -3,6 +3,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { config } from 'dotenv'
 import morgan from 'morgan'
+import userRoutes from './routes/user.routes.js'
 import errorMiddleware from './middlewares/error.middleware.js'
 config()
 
@@ -35,6 +36,8 @@ app.use('/ping', function (req, res) {
     // When a request is made to '/ping', respond with the string '/pong'
     res.send('/pong')
 })
+
+app.use('/api/v1/user', userRoutes)
 
 
 // This route handler is a catch-all (*) for any request that hasn't been handled by previous routes.
