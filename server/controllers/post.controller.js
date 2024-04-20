@@ -73,16 +73,17 @@ const addPost=async(req,res,next)=>{
 const getPost=async(req,res,next)=>{
   try{  
     const allPost=await Post.find({})
-    console.log(allPost);
+    // console.log(allPost);
     if(!allPost){
         return next(new AppError("post not fetched successfully",400))
     }
     console.log("hyy");
-    return res.status(200).json({
+    res.status(200).json({
         success:true,
-        message:"Your all Post",
+        message:"your post are:",
         allPost
     })
+
 
   }catch(error){
     return next(new AppError(error.message,500))
@@ -93,6 +94,8 @@ const getPost=async(req,res,next)=>{
 const deletePost=async(req,res,next)=>{
     try{
     const {id}=req.params
+    console.log("hyy i am delete post ");
+    console.log(id);
 
     const post=await Post.findById(id)
 

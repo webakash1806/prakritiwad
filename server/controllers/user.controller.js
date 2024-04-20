@@ -131,6 +131,7 @@ const register = async (req, res, next) => {
  */
 const login = async (req, res, next) => {
     try {
+        console.log("i am login data");
         // Extracting user input from request body
         const { email, password } = req.body
         
