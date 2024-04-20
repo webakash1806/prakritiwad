@@ -28,6 +28,9 @@ const Home = () => {
     const postData=useSelector((state)=>(state.post.postData))
 
     console.log(postData);
+    // postData.map((val)=>{
+    //   console.log(val.thumbnail.public_id)
+    // })
     
     // console.log(courseData);
     async function getPost(){
@@ -50,7 +53,7 @@ const Home = () => {
                 <p className='font-[500] tracking-wide md:text-[1.6rem] text-[1.4rem] text-center'>प्रकृति की बातें समाधान और राहें |
                 </p>
             </div>
-            <div className='flex flex-col items-center justify-center gap-2 mt-8 lg:flex-row border border-red-500'>
+            <div className='flex flex-col items-center justify-center gap-2 mt-8 lg:flex-row'>
                 <div className='flex flex-col gap-2 sm:flex-row'>
                     <Link to={`/${1}`} className='m-1 relative rounded-md overflow-hidden w-[19rem] h-[26rem]'>
                         <img src={usePostData[1].img} alt="" className=' size-full' />
@@ -87,13 +90,14 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  mt-10 lg:w-[62rem] gap-8 sm:gap-4 border border-black'>
-                {usePostDown.map((data, ind) => {
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  mt-10 lg:w-[62rem] gap-8 sm:gap-4 '>
+                {postData.map((data, ind) => {
+                   {"ayush"} 
                     return <>
                         <Link to={`/post/${ind}`} className='rounded-md flex flex-col gap-1 w-[19rem] shadow-[0px_0px_5px_#808080] p-2'>
-                            <img src={data.img} className='w-[18rem] h-[12rem] rounded-md' alt="" />
+                            <img src={data.thumbnail.secure_url} className='w-[18rem] h-[12rem] rounded-md' alt="" />
                             <h1 className=' text-[1.15rem] font-bold line-clamp-1'>{data.title}</h1>
-                            <p className='text-[0.88rem] font-500 line-clamp-3'>{data.desc}</p>
+                            <p className='text-[0.88rem] font-500 line-clamp-3'>{data.description}</p>
                             <button className='bg-[#A22EFF] rounded-[3px] mt-2 p-1 py-2 text-[0.9rem] font-bold text-white'>आगे पढ़े</button>
                         </Link>
                     </>

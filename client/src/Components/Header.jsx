@@ -90,7 +90,7 @@ const Header = () => {
                     </NavLink>
                 </div>
                 {isLoggedIn && <Link  to="/postAdd"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Add Post</Link>}
-                {isLoggedIn && <Link  to="/viewPost"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-1 mt-2 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>View Post</Link>}
+                {isLoggedIn && <Link  to="/viewPost"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-1 mt-2 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Admin</Link>}
                 <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>
             </nav>
         </header>
