@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+import { RxHamburgerMenu, RxCross1, RxButton } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector } from 'react-redux';
 import logo from '../assets/Image/logoPrak.png'
+import { logout } from '../../../server/controllers/user.controller';
 const Header = () => {
 
     const [barActive, setBarActive] = useState(true)
@@ -10,6 +12,8 @@ const Header = () => {
     const hamActive = () => {
         barActive ? setBarActive(false) : setBarActive(true)
     }
+
+    // const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
 
     const useHeaderList = [{ "url": "/", "list": "होम" },
 
@@ -20,6 +24,14 @@ const Header = () => {
     { url: "/घटनाएं", "list": "घटनाएं" },
     { url: "/पत्रिका", "list": "त्रैमासिक पत्रिका" },
     ]
+
+    // async function handleLogout(e) {
+    //     e.preventDefault();
+
+    //     const res = await dispatch(logout());
+    //     if(res?.payload?.success)
+    //     navigate("/");
+    // } 
 
     return (
         <header className='flex w-full  bg-white   lg:px-8 lg:p-3 px-6 sm:px-10 text-black items-center justify-between z-[1000] py-[6px] shadow-[-1px_1px_7px_#000] fixed top-0 left-0'>
@@ -77,7 +89,10 @@ const Header = () => {
                         </div>
                     </NavLink>
                 </div>
-                <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0 lg:mr-4 lg:p-[6px_16px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>
+                {!isLoggedIn  &&
+                <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0 lg:mr-4 lg:p-[6px_16px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
+
+                {/* {isLoggedIn && <button className='p-[0.2rem] px-[2rem] border border-black text-black ' onClick={handleLogout()} >Logout</button>} */}
             </nav>
         </header>
     )
