@@ -105,7 +105,6 @@ const Home = () => {
 
             </div>
             <VideoPage />
-            <button className='border border-red-500 text-black p-[0.2rem] px-[2rem] ' onClick={()=>getPost()}>ADD</button>
         </div>
     )
 }
