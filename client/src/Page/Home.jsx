@@ -21,26 +21,40 @@ const Home = () => {
 
     const dispatch=useDispatch()
     const navigate=useNavigate()
-    // const [courseData]=useSelector((state)=>{
-    //    return [state.course.courseData]
-    // })
 
-    const postData=useSelector((state)=>(state.post.postData))
+    let postData=useSelector((state)=>(state.post.postData))
 
-    console.log(postData);
-    // postData.map((val)=>{
-    //   console.log(val.thumbnail.public_id)
-    // })
+    let currentData=new Date().toJSON().slice(0,10)
+
+    let oldDate=new Date()
+    oldDate.setDate(oldDate.getDate()-10)
+    oldDate=oldDate.toJSON().slice(0,10);
+    console.log(oldDate);
     
+
+    {postData.length ?
+       
+        postData=postData.filter((val)=>{
+            if(val.createdAt.slice(0,10)>=oldDate && val.createdAt.slice(0,10)<=currentData)
+            {
+                return val
+            }
+        })
+
+    :null}   
+    console.log(postData);
     // console.log(courseData);
     async function getPost(){
         const res= await dispatch(getAllPost())
     }
+
+
     useEffect(()=>{
        window.scrollTo(0,0) 
        getPost()
     },[])
     
+
 
     // useEffect(() => {
     //     window.scrollTo(0, 0);
@@ -90,16 +104,17 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  mt-10 lg:w-[62rem] gap-8 sm:gap-4 '>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  mt-10 lg:w-[62rem] gap-8 sm:gap-4'>
                 {postData.map((data, ind) => {
                    {"ayush"} 
                     return <>
-                        <Link to={`/post/${ind}`} className='rounded-md flex flex-col gap-1 w-[19rem] shadow-[0px_0px_5px_#808080] p-2'>
+    
+                        <div onClick={()=>navigate('/post/detail' ,{state: {...data}})}   className='rounded-md flex flex-col gap-1 w-[19rem] shadow-[0px_0px_5px_#808080] p-2 cursor-pointer'>
                             <img src={data.thumbnail.secure_url} className='w-[18rem] h-[12rem] rounded-md' alt="" />
                             <h1 className=' text-[1.15rem] font-bold line-clamp-1'>{data.title}</h1>
                             <p className='text-[0.88rem] font-500 line-clamp-3'>{data.description}</p>
-                            <button className='bg-[#A22EFF] rounded-[3px] mt-2 p-1 py-2 text-[0.9rem] font-bold text-white'>आगे पढ़े</button>
-                        </Link>
+                            <button className='bg-[#A22EFF] rounded-[3px] mt-2 p-1 py-2 text-[0.9rem] font-bold text-white' onClick={()=>navigate("/post/detail")}>आगे पढ़े</button>
+                        </div>
                     </>
                 })}
 

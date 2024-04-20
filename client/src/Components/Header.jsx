@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { RxHamburgerMenu, RxCross1, RxButton } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/Image/logoPrak.png'
+import { logout } from '../redux/slice/AuthSlice';
 // import { logout } from '../../../server/controllers/user.controller';
 const Header = () => {
+
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
 
     const [barActive, setBarActive] = useState(true)
 
@@ -14,6 +18,8 @@ const Header = () => {
     }
 
     const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
+
+    console.log(isLoggedIn);
 
     const useHeaderList = [{ "url": "/", "list": "होम" },
 
@@ -25,13 +31,14 @@ const Header = () => {
     { url: "/पत्रिका", "list": "त्रैमासिक पत्रिका" },
     ]
 
-    // async function handleLogout(e) {
-    //     e.preventDefault();
+    async function handleLogout() {
+        console.log("ayush");
+        // e.preventDefault();
 
-    //     const res = await dispatch(logout());
-    //     if(res?.payload?.success)
-    //     navigate("/");
-    // } 
+        const res = await dispatch(logout());
+        if(res?.payload?.success)
+        navigate("/");
+    } 
 
     return (
         <header className='flex w-full  bg-white   lg:px-8 lg:p-3 px-6 sm:px-10 text-black items-center justify-between z-[1000] py-[6px] shadow-[-1px_1px_7px_#000] fixed top-0 left-0'>
@@ -39,13 +46,13 @@ const Header = () => {
                 {barActive ? <RxHamburgerMenu className='text-[1.3rem]' />
                     : <RxCross1 className='text-[1.3rem]' />}
             </div>
-            <Link to="/" className='flex items-center justify-center gap-2 lg:mr-10'>
+            <Link to="/" className='flex items-center justify-center gap-2 lg:mr-10 '>
                 <img src={logo} alt="" className='size-[2.5rem]' />
                 <p className='text-[1.2rem] font-semibold text-[#3cac1a]'>प्रकृतिवाद</p></Link>
-            <nav className={` text-white z-[1000] bg-white lg:border-0 shadow-[0px_160px_1000px_#12073ac5] lg:shadow-none flex border-t-[#201154] border-t-2  p-4 pb-10 lg:p-0 h-[100vh] lg:h-fit w-screen lg:max-w-[80vw]  items-center lg:justify-between gap-3 lg:gap-0 flex-col absolute 
-            ${barActive ? "top-[3.3rem]  left-[-70rem] duration-[0.5s]" : "top-[3.3rem]  left-0 duration-[0.5s]"}
+            <nav className={` text-white z-[1000] bg-white lg:border-0 shadow-[0px_160px_1000px_#12073ac5] lg:shadow-none flex border-t-[#201154] border-t-2  p-4 pb-10 lg:p-0 h-[100vh] lg:h-fit w-screen lg:max-w-[80vw]  items-center lg:justify-between gap-3 lg:gap-[2rem] flex-col absolute 
+            ${barActive ? "top-[3.3rem]  left-[-70rem] duration-[0.5s]" : "top-[3.3rem]  left-0 duration-[0.5s] "}
              lg:flex-row lg:static `}>
-                <div className="flex z-[1000] flex-col gap-3 bg-white lg:flex-row lg:gap-0 ">
+                <div className="flex z-[1000] flex-col gap-3 bg-white lg:flex-row lg:gap-0  ">
                     {useHeaderList.map((val, ind) => {
                         return (<NavLink onClick={() => setBarActive(true)} key={ind + 1} style={({ isActive }) => ({
                             color: isActive ? '#c35dfe' : 'black'
@@ -89,9 +96,15 @@ const Header = () => {
                         </div>
                     </NavLink>
                 </div>
-                {isLoggedIn && <Link  to="/postAdd"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Add Post</Link>}
-                {isLoggedIn && <Link  to="/viewPost"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-1 mt-2 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Admin</Link>}
-                <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0 lg:mr-4 lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>
+
+                <div className='flex  items-center justify-center gap-2'>
+                {isLoggedIn && <Link  to="/postAdd"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Add Post</Link>}
+                {isLoggedIn && <Link  to="/viewPost"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-1 mt-2 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Admin</Link>}
+                {!isLoggedIn &&
+                <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
+                {isLoggedIn && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
+
+                </div>
             </nav>
         </header>
     )

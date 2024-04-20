@@ -27,20 +27,21 @@ export const LoginAccount=createAsyncThunk("/auth/login",async(data)=>{
   }
 })
 
-// export const logout=createAsyncThunk("/auth/logout",async()=>{
-//   try{
-//      const response=axiosInstance.get("user/logout")
-//      toast.promise(response,{
-//       loading:"Wait! logout in progress....",
-//       success:(data)=>{
-//           return data?.data?.message
-//       },
-//       error:"Filed to logout"
-//      })
-//   }catch(error){
-//       toast.error(error?.response?.data?.message)
-//   }
-// })
+
+export const logout=createAsyncThunk("/auth/logout",async()=>{
+  try{
+     const response=axiosInstance.get("user/logout")
+     toast.promise(response,{
+      loading:"Wait! logout in progress....",
+      success:(data)=>{
+          return data?.data?.message
+      },
+      error:"Filed to logout"
+     })
+  }catch(error){
+      toast.error(error?.response?.data?.message)
+  }
+})
 
 
 
@@ -59,13 +60,13 @@ const authSlice=createSlice({
          state.data=action?.payload?.user
          state.role=action?.payload?.user?.role
         })
-
-        // .addCase(logout.fulfilled,(state)=>{
-        //   localStorage.clear()
-        //   state.data={}
-        //   state.isLoggedIn=false
-        //   state.role=""
-        //  })
+        
+        .addCase(logout.fulfilled,(state)=>{
+          localStorage.clear()
+          state.data={}
+          state.isLoggedIn=false
+          state.role=""
+         })
     }
 })
 
