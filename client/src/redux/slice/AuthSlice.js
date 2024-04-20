@@ -13,6 +13,7 @@ const initialState={
 export const LoginAccount=createAsyncThunk("/auth/login",async(data)=>{
   try{
    const response=axiosInstance.post("user/login",data)
+   console.log("i am login data");
    toast.promise(response,{
     loading:'Waiting authenciation is in Process',
     success:(data)=>{

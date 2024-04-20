@@ -11,17 +11,37 @@ import img from '../assets/Image/mainBg.jpg'
 import AddPost from './AddPost'
 import usePostData from '../Hooks/usePostData'
 import usePostDown from '../Hooks/usePostDown'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import PostAdd from './PostAdd'
 import VideoPage from './Videos/VideoPage'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllPost } from '../redux/slice/PostSlice'
 
 const Home = () => {
 
+    const dispatch=useDispatch()
+    const navigate=useNavigate()
+    // const [courseData]=useSelector((state)=>{
+    //    return [state.course.courseData]
+    // })
 
+    const postData=useSelector((state)=>(state.post.postData))
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [])
+    console.log(postData);
+    
+    // console.log(courseData);
+    async function getPost(){
+        const res= await dispatch(getAllPost())
+    }
+    useEffect(()=>{
+       window.scrollTo(0,0) 
+       getPost()
+    },[])
+    
+
+    // useEffect(() => {
+    //     window.scrollTo(0, 0);
+    // }, [])
 
     return (
         <div className='flex flex-col items-center justify-center overflow-x-hidden'>
@@ -81,6 +101,7 @@ const Home = () => {
 
             </div>
             <VideoPage />
+            <button className='border border-red-500 text-black p-[0.2rem] px-[2rem] ' onClick={()=>getPost()}>ADD</button>
         </div>
     )
 }
