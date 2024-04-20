@@ -55,8 +55,8 @@ const CreatePost = () => {
     }
 
     const response=await dispatch(addPost(userInput))
-
-  if(response?.payload?.success){
+  console.log(response);
+  if(response?.payload?.sucesss){
     setUserInput({
       title:"",
       description:"",
@@ -80,7 +80,7 @@ const CreatePost = () => {
                                         />
                                     ): (
                                         <div className="flex items-center justify-center w-full m-auto border h-44">
-                                            <h1 className="text-lg font-bold">Upload your course thumbnail</h1>
+                                            <h1 className="text-lg font-bold">Upload your Post thumbnail</h1>
                                         </div>
                                     )}
 
@@ -115,13 +115,13 @@ const CreatePost = () => {
                                 <label className="text-lg font-semibold" htmlFor="description">
                                     Description
                                 </label>
-                                <input
+                                <textarea
                                     required
                                     type="text"
                                     name="description"
                                     id="description"
                                     placeholder="Enter post Description"
-                                    className="px-2  bg-transparent border pb-[10rem]"
+                                    className="px-2  bg-transparent border pb-[10rem] line-clamp-1"
                                     value={userInput.description}
                                     onChange={handleUserInput}
                                 />
