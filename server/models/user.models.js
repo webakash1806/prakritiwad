@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose'
+
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import crypto from 'crypto'
@@ -74,8 +75,9 @@ userSchema.pre('save', async function (next) {
         return next()
     }
     // Hashing the password and confirmPassword before saving
-    this.password = await bcrypt.hash(this.password, 10)
-    this.confirmPassword = await bcrypt.hash(this.confirmPassword, 10)
+    // this.password = await bcrypt.hash(this.password, 10)
+    this.password=await bcrypt.hash(this.password,10) 
+    this.confirmPassword =await bcrypt.hash(this.confirmPassword, 10)
 })
 
 /* 
@@ -88,9 +90,9 @@ userSchema.methods = {
             {
                 id: this._id, email: this.email, subscription: this.subscription, role: this.role
             },
-            process.env.JWT_SECRET,
+            process.env.SECRET,
             {
-                expiresIn: process.env.JWT_EXPIRY
+                expiresIn:10
             }
         )
     },

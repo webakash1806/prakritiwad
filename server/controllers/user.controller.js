@@ -133,7 +133,7 @@ const login = async (req, res, next) => {
     try {
         // Extracting user input from request body
         const { email, password } = req.body
-
+        
         // Validating required fields
         if (!email || !password) {
             return next(new AppError('Email and Password is required', 400))

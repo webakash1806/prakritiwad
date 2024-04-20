@@ -25,7 +25,7 @@ const router = Router()
 router.post('/register', upload.single("avatar"), register)
 
 // Route for user login with authentication middleware (loginAuth)
-router.post('/login', loginAuth, login)
+router.post('/login', login)
 
 // Route for user logout
 router.get('/logout', logout)
