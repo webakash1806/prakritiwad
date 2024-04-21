@@ -50,7 +50,7 @@ const CreatePost = () => {
    
   async function addingPost(){
     if(!userInput.title  || !userInput.description || !userInput.thumbnail || !userInput.authorName){
-      toast.error("All field are required babu")
+      toast.error("All field are required ")
       return 
     }
 

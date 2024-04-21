@@ -97,7 +97,7 @@ const Header = () => {
                     </NavLink>
                 </div>
 
-                <div className='flex flex-col lg:flex-row  items-center justify-center gap-2'>
+                <div className='flex flex-col items-center justify-center gap-2 lg:flex-row'>
                 {isLoggedIn && <Link  to="/postAdd"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
@@ -105,6 +105,13 @@ const Header = () => {
                 pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
                  border-b-[1px] '>नया पोस्ट</Link>}
+                  {isLoggedIn && <Link  to="/post/query"   className='text-black text-[1rem] 
+                 tracking-wider 
+                w-[90vw] lg:w-fit text-center lg:border-0
+                lg:hover:border-b-2 bg-white font-[550]
+                pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                 duration-200 cursor-pointer 
+                 border-b-[1px] '>अनुरोध</Link>}
                 {isLoggedIn && <Link  to="/viewPost"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0

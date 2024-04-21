@@ -18,6 +18,7 @@ import Patrika from './Page/Patrika'
 import CreatePost from './Page/Post/CreatePost'
 import ViewPost from './Page/Post/ViewPost'
 import DetailPost from './Page/Post/DetailPost'
+import RequestPost from './Page/DashBoard/RequestPost'
 
 const App = () => {
 
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/postAdd" element={<CreatePost/>} />
         <Route path="/viewPost" element={<ViewPost/>} />
         <Route path="/post/detail" element={<DetailPost/>} />
+        <Route path="/post/query" element={<RequestPost/>} />
       </Routes>
       <MdKeyboardDoubleArrowUp onClick={handleScrollToTop} className=' text-white flex items-center justify-center rounded-full p-[0.6rem] bg-black fixed right-4 z-[100000] text-[2.7rem] bottom-4 shadow-sm shadow-white cursor-pointer' />
       <Footer />
