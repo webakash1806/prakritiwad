@@ -10,8 +10,6 @@ const postSchema=new Schema(
        description:{
         type:String,
         required:true
-        // minLength:[50,"Description must be more than 50 characters"],
-        // maxLength:[450,"Description should be not more than 450 characters"]
        },
        thumbnail:{
         public_id: {
@@ -21,6 +19,10 @@ const postSchema=new Schema(
             type: 'String',
         }
        },
+       authorName:{
+        type:String,
+        required:true
+       }
     },
     {
         timestamps:true

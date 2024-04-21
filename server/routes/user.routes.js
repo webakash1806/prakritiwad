@@ -17,6 +17,7 @@ import { isLoggedIn } from "../middlewares/auth.middleware.js";
 import { loginAuth } from "../middlewares/login.middleware.js";
 import upload from '../middlewares/multer.middleware.js'
 import  {addPost, deletePost, getPost } from "../controllers/post.controller.js";
+import { addPostQuery, deletePostQuery, getPostQuery } from "../controllers/query.controller.js";
 
 // Creating an instance of the Express Router
 const router = Router()
@@ -49,6 +50,11 @@ router.put('/update-profile/:id', isLoggedIn, upload.single("avatar"), updatePro
 router.post('/addpost',upload.single("thumbnail"),addPost)
 router.get('/getpost',getPost)
 router.delete('/deletePost/:id',deletePost);
+
+
+router.post('/addQueryPost',addPostQuery)
+router.get('/getQueryPost',getPostQuery)
+router.delete('/deleteQueryPost/:id',deletePostQuery);
 
 // Exporting the router instance to be used in the main application
 export default router

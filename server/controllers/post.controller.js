@@ -1,4 +1,4 @@
-import { log } from "console";
+
 import Post from "../models/post.model.js";
 import AppError from "../utils/error.utils.js";
 import cloudinary from 'cloudinary'
@@ -10,9 +10,9 @@ import fs from 'fs/promises'
 const addPost=async(req,res,next)=>{
    try{
      
-    const {thumbnail,title,description}=req.body
+    const {thumbnail,title,description,authorName}=req.body
 
-    if(!title || !description){
+    if(!title || !description || !authorName){
         return next(new AppError("All field are Required",400))
     }
 
@@ -27,7 +27,8 @@ const addPost=async(req,res,next)=>{
        thumbnail:{
         public_id: '',
         secure_url: ''
-       } 
+       } ,
+       authorName
     })
 
     if(!post){
@@ -77,7 +78,6 @@ const getPost=async(req,res,next)=>{
     if(!allPost){
         return next(new AppError("post not fetched successfully",400))
     }
-    console.log("hyy");
     res.status(200).json({
         success:true,
         message:"your post are:",
@@ -94,8 +94,6 @@ const getPost=async(req,res,next)=>{
 const deletePost=async(req,res,next)=>{
     try{
     const {id}=req.params
-    console.log("hyy i am delete post ");
-    console.log(id);
 
     const post=await Post.findById(id)
 
