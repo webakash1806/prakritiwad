@@ -65,7 +65,7 @@ const Header = () => {
                 
                  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
-                 border-b-[1px]'>
+                 border-b-[1px] border border-red-500'>
                                 {val?.list}
                             </div >
                         </NavLink>)
@@ -97,9 +97,24 @@ const Header = () => {
                     </NavLink>
                 </div>
 
-                <div className='flex  items-center justify-center gap-2'>
-                {isLoggedIn && <Link  to="/postAdd"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Add Post</Link>}
-                {isLoggedIn && <Link  to="/viewPost"   className='text-center w-[20vw] bg-[#A22EFF] rounded-lg lg:w-fit p-1 mt-2 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>Admin</Link>}
+                <div className='flex flex-col lg:flex-row  items-center justify-center gap-2'>
+                {isLoggedIn && <Link  to="/postAdd"   className='text-black text-[1rem] 
+                 tracking-wider 
+                w-[90vw] lg:w-fit text-center lg:border-0
+                lg:hover:border-b-2 bg-white font-[550]
+                pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                 duration-200 cursor-pointer 
+                 border-b-[1px] '>नया पोस्ट</Link>}
+                {isLoggedIn && <Link  to="/viewPost"   className='text-black text-[1rem] 
+                 tracking-wider 
+                w-[90vw] lg:w-fit text-center lg:border-0
+                lg:hover:border-b-2 bg-white font-[550]
+                pb-2 lg:p-[3px] 
+                
+                 border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                 duration-200 cursor-pointer 
+                 border-b-[1px]'>
+                 डैशबोर्ड</Link>}
                 {!isLoggedIn &&
                 <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
                 {isLoggedIn && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}

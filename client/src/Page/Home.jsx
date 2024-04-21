@@ -106,7 +106,6 @@ const Home = () => {
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  mt-10 lg:w-[62rem] gap-8 sm:gap-4'>
                 {postData.map((data, ind) => {
-                   {"ayush"} 
                     return <>
     
                         <div onClick={()=>navigate('/post/detail' ,{state: {...data}})}   className='rounded-md flex flex-col gap-1 w-[19rem] shadow-[0px_0px_5px_#808080] p-2 cursor-pointer'>

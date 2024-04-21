@@ -11,7 +11,8 @@ export const getAllPost=createAsyncThunk("/getPost",async()=>{
 
     try{
       const response=axiosInstance.get("user/getpost")
-
+      
+      
       toast.promise(response,{
         loading:"loading post data...",
         success:"post loaded succesfully",
@@ -47,6 +48,7 @@ export const addPost=createAsyncThunk("/addPost",async(data)=>{
     formData.append("title",data?.title)
     formData.append("description",data?.description)
     formData.append("thumbnail",data?.thumbnail)
+    formData.append("authorName",data?.authorName)
     
     const response=axiosInstance.post("user/addPost",formData)
 

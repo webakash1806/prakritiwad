@@ -12,12 +12,12 @@ const CreatePost = () => {
     const [userInput,setUserInput]=useState({
         title:"",
         description:"",
-        thumbnail:null
+        thumbnail:null,
+        authorName:""
      })
 
      function handleImageUpload(e){
         e.preventDefault();
-        console.log("i am handle image uplaods");
         const uploadedImage = e.target.files[0];
         console.log(uploadedImage)
         if(uploadedImage) {
@@ -44,24 +44,24 @@ const CreatePost = () => {
       ...userInput,
       [name]:value
     })
-    console.log(userInput);
   }
+
+  console.log(userInput);
    
   async function addingPost(){
-    console.log(userInput);
-    if(!userInput.title  || !userInput.description || !userInput.thumbnail){
-      toast.error("All field are required")
+    if(!userInput.title  || !userInput.description || !userInput.thumbnail || !userInput.authorName){
+      toast.error("All field are required babu")
       return 
     }
 
     const response=await dispatch(addPost(userInput))
-  console.log(response);
   if(response?.payload?.sucesss){
     setUserInput({
       title:"",
       description:"",
       thumbnail:null,
-      previewImage:"" 
+      previewImage:"" ,
+      authorName:""
     })
     navigate("/")
   }
@@ -107,6 +107,22 @@ const CreatePost = () => {
                                     placeholder="Enter Post title"
                                     className="px-2 py-1 bg-transparent border"
                                     value={userInput.title}
+                                    onChange={handleUserInput}
+                                />
+                </div>
+
+                <div className="flex flex-col gap-1">
+                                <label className="text-lg font-semibold" htmlFor="authorName">
+                                    Author Name
+                                </label>
+                                <input
+                                    required
+                                    type="text"
+                                    name="authorName"
+                                    id="authorName"
+                                    placeholder="Enter Post title"
+                                    className="px-2 py-1 bg-transparent border"
+                                    value={userInput.authorName}
                                     onChange={handleUserInput}
                                 />
                 </div>
