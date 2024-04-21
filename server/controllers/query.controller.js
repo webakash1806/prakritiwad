@@ -3,7 +3,10 @@ import AppError from "../utils/error.utils.js";
 
  const addPostQuery=async(req,res,next)=>{
 try{    
+  console.log(req.body);
   const {title,description,fullName,phoneNumber,email,aadharCard}=req.body
+
+  console.log(title);
 
   if(!title || !description || !fullName || !phoneNumber || !email || !aadharCard){
     return next(new AppError("All field are Required",400))
@@ -45,7 +48,7 @@ try{
     postQuery
  })
 }catch(e){
-    return next(new AppError(error.message,500))
+    return next(new AppError(e.message,500))
 }
 }
 
