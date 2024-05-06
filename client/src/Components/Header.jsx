@@ -29,6 +29,7 @@ const Header = () => {
     { url: "/coming", "list": "कहानियां" },
     { url: "/घटनाएं", "list": "घटनाएं" },
     { url: "/पत्रिका", "list": "त्रैमासिक पत्रिका" },
+    { url: "/अख़बार", "list": "प्रकृतिवाद पर -आज का अख़बार" }
     ]
 
     async function handleLogout() {
