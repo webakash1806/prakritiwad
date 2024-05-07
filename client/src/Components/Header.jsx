@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { RxHamburgerMenu, RxCross1, RxButton } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
-import logo from '../assets/Image/logoPrak.png'
+import logo from '../assets/Image/praLogo.jpeg'
 import { logout } from '../redux/slice/AuthSlice';
 // import { logout } from '../../../server/controllers/user.controller';
 const Header = () => {
@@ -24,12 +24,12 @@ const Header = () => {
     const useHeaderList = [{ "url": "/", "list": "होम" },
 
     { url: "/add/post", "list": "खबरें भेजें" },
-    { url: "/contact", "list": "संपर्क करें" },
+    { url: "/contact", "list": "संपर्क" },
     { url: "/coming", "list": "कविताएँ" },
     { url: "/coming", "list": "कहानियां" },
     { url: "/घटनाएं", "list": "घटनाएं" },
-    { url: "/पत्रिका", "list": "त्रैमासिक पत्रिका" },
-    { url: "/अख़बार", "list": "प्रकृतिवाद पर -आज का अख़बार" }
+    { url: "/पत्रिका", "list": "पत्रिका" },
+    { url: "/अख़बार", "list": "प्रकृति पर -आज की खबर!" }
     ]
 
     async function handleLogout() {
@@ -48,8 +48,9 @@ const Header = () => {
                     : <RxCross1 className='text-[1.3rem]' />}
             </div>
             <Link to="/" className='flex items-center justify-center gap-2 lg:mr-10 '>
-                <img src={logo} alt="" className='size-[2.5rem]' />
-                <p className='text-[1.2rem] font-semibold text-[#3cac1a]'>प्रकृतिवाद</p></Link>
+                <img src={logo} alt="" className='size-[4.5rem]' />
+                {/* <p className='text-[1.2rem] font-semibold text-[#3cac1a]'>प्रकृतिवाद</p> */}
+                </Link>
             <nav className={` text-white z-[1000] bg-white lg:border-0 shadow-[0px_160px_1000px_#12073ac5] lg:shadow-none flex border-t-[#201154] border-t-2  p-4 pb-10 lg:p-0 h-[100vh] lg:h-fit w-screen lg:max-w-[80vw]  items-center lg:justify-between gap-3 lg:gap-[2rem] flex-col absolute 
             ${barActive ? "top-[3.3rem]  left-[-70rem] duration-[0.5s]" : "top-[3.3rem]  left-0 duration-[0.5s] "}
              lg:flex-row lg:static `}>
@@ -71,6 +72,25 @@ const Header = () => {
                             </div >
                         </NavLink>)
                     })}
+                       <NavLink >
+                        <div className="text-black dropdown dropdown-hover ">
+                            <div className='text-[1rem] 
+                 tracking-wide 
+                w-[90vw] lg:w-fit text-center lg:border-0
+                lg:hover:border-b-2 bg-white font-semibold
+                pb-4 pt-1 lg:p-[3px] lg:m-[0px_6px]
+                
+                 border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                 duration-200 cursor-pointer 
+                 border-b-[1px] flex items-center justify-center gap-1' tabIndex={0} role="button">प्रकृतिवाद साहित्य<IoIosArrowDown /></div>
+                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-1 shadow bg-base-100 w-full lg:w-[16rem] overflow-x-hidden border-none lg:h-fit lg:overflow-hidden h-[11rem] overflow-scroll">
+                                <li className='flex flex-col gap-1 bg-white' onClick={hamActive}>
+                                    <Link to={'/about'} >कविताएँ</Link>
+                                    <Link to={'/coming'} >कहानियां</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </NavLink>
                     <NavLink >
                         <div className="text-black dropdown dropdown-hover ">
                             <div className='text-[1rem] 
@@ -90,8 +110,8 @@ const Header = () => {
                                     <Link to={'/coming'}>शिक्षा</Link>
                                     <Link to={'/coming'} >चिकित्सा</Link>
                                     <Link to={'/coming'} >आवास</Link>
+                                    <Link to={'/coming'} >कला</Link>
                                     <Link to={'/coming'} >संस्कार</Link>
-                                    <Link to={'/coming'}>मोक्ष</Link>
                                 </li>
                             </ul>
                         </div>
