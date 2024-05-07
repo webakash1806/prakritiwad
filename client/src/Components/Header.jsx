@@ -25,8 +25,6 @@ const Header = () => {
 
     { url: "/add/post", "list": "खबरें भेजें" },
     { url: "/contact", "list": "संपर्क" },
-    { url: "/coming", "list": "कविताएँ" },
-    { url: "/coming", "list": "कहानियां" },
     { url: "/घटनाएं", "list": "घटनाएं" },
     { url: "/पत्रिका", "list": "पत्रिका" },
     { url: "/अख़बार", "list": "प्रकृति पर -आज की खबर!" }
@@ -67,7 +65,7 @@ const Header = () => {
                 
                  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
-                 border-b-[1px] border border-red-500'>
+                 border-b-[1px] '>
                                 {val?.list}
                             </div >
                         </NavLink>)
