@@ -10,6 +10,29 @@ const initialState={
     data:localStorage.getItem('data') || "ACTIVE"
 }
 
+export const createAccount=createAsyncThunk("/auth/signup",async (data)=>{
+  console.log(data);
+ try{
+   const response=axiosInstance.post("user/register",data)
+   console.log(response);
+   toast.promise(response,{
+      loading:"Wait creating your account",
+      success:(data)=>{
+      //  isLoggedIn(true)   
+       return data?.data?.message
+      }, 
+      // success:isLoggedIn(true),
+      error:"Failed to Create Account"
+   })
+
+   return (await response).data
+ }catch(error){
+  toast.error(error?.response?.data?.message)
+ } 
+})
+
+
+
 export const LoginAccount=createAsyncThunk("/auth/login",async(data)=>{
   try{
    const response=axiosInstance.post("user/login",data)
