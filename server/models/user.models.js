@@ -24,7 +24,6 @@ const userSchema = new Schema({
     },
     phoneNumber: {
         type: Number,
-        required: true,
         unique: true
     },
     // User's email with validation using regex
