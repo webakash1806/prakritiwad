@@ -64,7 +64,7 @@ const RequestPost = () => {
                        <textarea readOnly value={post?.email} className='w-40 h-[9rem] resize-none '></textarea>
                        </td>
                        <td className='px-4 py-4'>
-                       <textarea readOnly value={post?.aadharCard} className='w-40 h-[9rem] resize-none '></textarea>
+                       <textarea readOnly value={post?.aadharCard?.secure_url} className='w-40 h-[9rem] resize-none '></textarea>
                        </td>
                     
                        <td className='flex flex-col items-center px-4 py-4 lg:flex-row' >

@@ -148,7 +148,7 @@ const PostAdd = () => {
                                     onChange={handleImageUpload}
                                 />
                        </div>
-                    <p className='text-[0.8rem] font-semibold'><span className='text-[1rem] text-red-600'>***</span>Aadhar number is taken only for your&apos;s verification</p>
+                    <p className='text-[0.8rem] font-semibold'><span className='text-[1rem] text-red-600'>***</span>Aadhar card Image is taken only for your&apos;s verification</p>
                 </div>
                 {/* <AddPost /> */}
                 <textarea
