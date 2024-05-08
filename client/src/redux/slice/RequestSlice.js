@@ -24,7 +24,15 @@ export const getQueryPost=createAsyncThunk("/getQueryPost",async()=>{
 
 export const addQueryPost=createAsyncThunk("/addQueryPost",async(data)=>{
     try{
-        const response=axiosInstance.post("user/addQueryPost",data)
+
+       const formData=new FormData()
+       formData.append("fullName",data?.fullName)
+       formData.append("description",data?.description)
+       formData.append("email",data?.email)
+       formData.append("phoneNumber",data?.phoneNumber)
+       formData.append("title",data?.title)
+       formData.append("aadharCard",data?.aadharCard)
+        const response=axiosInstance.post("user/addQueryPost",formData)
         toast.promise(response,{
           loading:"creating Post Request",
           success:"Post Request created Successfull",

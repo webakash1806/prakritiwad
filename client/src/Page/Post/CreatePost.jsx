@@ -36,7 +36,7 @@ const CreatePost = () => {
               setPreviewImage(this.result);
           })
         }
-  }
+     }
    
   function handleUserInput(e){
     const {name,value}=e.target

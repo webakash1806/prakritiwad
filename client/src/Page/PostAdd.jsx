@@ -8,6 +8,7 @@ const PostAdd = () => {
     
     const dispatch=useDispatch()
     const navigate=useNavigate()
+    const [previewImage,setPreviewImage]=useState("")
     const [userInput,setUserInput]=useState({
         title:"",
         description:"",
@@ -17,9 +18,34 @@ const PostAdd = () => {
         aadharCard:""
      })
 
+     console.log(userInput);
+
      const postData=useSelector((state)=>(state.RequestPost.RequestPostData))
 
-     console.log(postData);
+
+     function handleImageUpload(e){
+      e.preventDefault();
+      const uploadedImage = e.target.files[0];
+      console.log(uploadedImage)
+      if(uploadedImage) {
+           setUserInput({
+              ...userInput,
+              aadharCard: uploadedImage
+          });
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(uploadedImage);
+          // fileReader.addEventListener("load", function () {
+          //     thumbnail:uploadedImage
+          //     previewImage:this.result
+          //     console.log(userInput.previewImage)
+          // })
+          fileReader.addEventListener("load", function () {
+            setPreviewImage(this.result);
+        })
+      }
+   }
+    
+
 
      function handleUserInput(e){
         const {name,value}=e.target
@@ -99,16 +125,29 @@ const PostAdd = () => {
 
                 </div>
                 <div>
-                <input
-                    required
-                    type="text"
-                    name="aadharCard"
-                    id="aadharCard"
-                    placeholder="Enter your aadharCard"
-                    className="w-full p-2 bg-white border border-black rounded outline-none'"
-                    value={userInput.aadharCard}
-                    onChange={handleUserInput}
-                   />
+                       <div>
+                                <label htmlFor="image_uploads" className="cursor-pointer">
+                                    {previewImage ? (
+                                        <img 
+                                            className="w-full m-auto border h-[25rem]"
+                                            src={previewImage}
+                                        />
+                                    ): (
+                                        <div className="flex items-center justify-center w-full m-auto border h-44">
+                                            <h1 className="text-lg font-bold">Upload your Aadhar Card Image</h1>
+                                        </div>
+                                    )}
+
+                                </label>
+                                <input 
+                                    className="hidden "
+                                    type="file"
+                                    id="image_uploads"
+                                    accept=".jpg, .jpeg, .png"
+                                    name="image_uploads"
+                                    onChange={handleImageUpload}
+                                />
+                       </div>
                     <p className='text-[0.8rem] font-semibold'><span className='text-[1rem] text-red-600'>***</span>Aadhar number is taken only for your&apos;s verification</p>
                 </div>
                 {/* <AddPost /> */}

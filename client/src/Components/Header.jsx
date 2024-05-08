@@ -33,8 +33,8 @@ const Header = () => {
     ]
 
     async function handleLogout() {
-        // console.log("ayush");
-        e.preventDefault();
+        console.log("ayush");
+        // e.preventDefault();
 
         const res = await dispatch(logout());
         if(res?.payload?.success)
