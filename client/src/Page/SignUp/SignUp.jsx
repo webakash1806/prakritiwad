@@ -72,7 +72,7 @@ const SignUp = () => {
         <div className="flex flex-col items-center justify-center mt-10 ">
             <AuthHeader />
             <form noValidate    onSubmit={createNewAccount}  
-                className=" flex border shadow-[0px_0px_5px_#808080] rounded-b-md w-[19.5rem] xs:w-[22rem] flex-col text-center text-black ">
+                className=" flex shadow-[0px_0px_5px_#808080] rounded-b-md  w-[19.5rem] lg:w-[26rem]  xs:w-[22rem] flex-col text-center text-black  ]">
                 <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem]">
                     <label htmlFor="">Full Name</label>
                     <input type="fullName" required name='fullName' id='fullName' placeholder='Enter your Full Name' className='"border w-full rounded-[3px] bg-white outline-none p-1 text-[16px]' onChange={handleUserInput} value={signupData.fullName}/>

@@ -51,21 +51,21 @@ const Login = () => {
         <div className="flex flex-col items-center justify-center mt-16">
             <AuthHeader />
             <form action="" 
-                className="shadow-[0px_0px_5px_#808080] flex flex-col text-center text-black border w-[19.5rem] xs:w-[22rem]"
+                className="shadow-[0px_0px_5px_#808080] flex flex-col text-center text-black border w-[19.5rem] lg:w-[26rem]  xs:w-[22rem]"
                 noValidate
                 onSubmit={Login}
                 >
                 <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem]">
                     <label htmlFor="email" className='font-semibold'>Email</label>
-                   <input type="email" required name='email' id='email' placeholder='Enter your email' className='bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.email} />
+                   <input type="email" required name='email' id='email' placeholder='Enter your email' className='w-full bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.email} />
                 </div>
                 <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem] font-[500]">
                 <label htmlFor="password" className='font-semibold'>Password</label>
-                <input type="password" required name='password' id='password' placeholder='Enter your Password' className='bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.password}  />
+                <input type="password" required name='password' id='password' placeholder='Enter your Password' className='w-full bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.password}  />
                 </div>
                 <button type="submit"   className='text-center bg-[#A22EFF] rounded-md p-2 m-[1rem_0.5rem] xs:m-[1rem_1.5rem] hover:bg-[#bd4aff] duration-300 text-white'>Login</button>
                 
-                <Link to={"/forget"}  className="text-red-500 ">Forget Password</Link>
+                <Link to={"/forget"}  className="text-[#f10707] ">Forget Password?</Link>
               
             </form>
         </div>

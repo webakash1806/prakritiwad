@@ -10,7 +10,7 @@ const AuthHeader = () => {
     }
 
     return (
-        <div className='mt-[5rem] shadow-[0px_0px_5px_#808080] text-black  border  rounded-t-md w-[19.5rem] xs:w-[22rem]  flex '>
+        <div className='mt-[5rem] shadow-[0px_0px_5px_#808080] text-black  border  rounded-t-md w-[19.5rem] lg:w-[26rem]  xs:w-[22rem]  flex '>
             <Link to="/login"
                 onClick={formActive}
                 className={`p-[0.5rem_0] w-[50%] text-center  ${active ? 'bg-[#A22EFF] text-white' : "bg-transparent text-black"}`}>Login</Link>
