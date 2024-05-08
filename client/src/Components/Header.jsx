@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { RxHamburgerMenu, RxCross1, RxButton } from "react-icons/rx";
 import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
-import logo from '../assets/Image/praLogo.jpeg'
+import logo from '../assets/Image/logoPrak.png'
 import { logout } from '../redux/slice/AuthSlice';
 // import { logout } from '../../../server/controllers/user.controller';
 const Header = () => {
@@ -33,8 +33,8 @@ const Header = () => {
     ]
 
     async function handleLogout() {
-        console.log("ayush");
-        // e.preventDefault();
+        // console.log("ayush");
+        e.preventDefault();
 
         const res = await dispatch(logout());
         if(res?.payload?.success)
@@ -48,8 +48,8 @@ const Header = () => {
                     : <RxCross1 className='text-[1.3rem]' />}
             </div>
             <Link to="/" className='flex items-center justify-center gap-2 lg:mr-10 '>
-                <img src={logo} alt="" className='size-[4.5rem]' />
-                {/* <p className='text-[1.2rem] font-semibold text-[#3cac1a]'>प्रकृतिवाद</p> */}
+                <img src={logo} alt="" className='size-[2.5rem]' />
+                <p className='text-[1.2rem] font-semibold text-[#3cac1a]'>प्रकृतिवाद</p>
                 </Link>
             <nav className={` text-white z-[1000] bg-white lg:border-0 shadow-[0px_160px_1000px_#12073ac5] lg:shadow-none flex border-t-[#201154] border-t-2  p-4 pb-10 lg:p-0 h-[100vh] lg:h-fit w-screen lg:max-w-[80vw]  items-center lg:justify-between gap-3 lg:gap-[2rem] flex-col absolute 
             ${barActive ? "top-[3.3rem]  left-[-70rem] duration-[0.5s]" : "top-[3.3rem]  left-0 duration-[0.5s] "}
