@@ -146,9 +146,9 @@ const Header = () => {
                  duration-200 cursor-pointer 
                  border-b-[1px]'>
                  डैशबोर्ड</Link>}
-                {user?.data==="NOTACTIVE" &&
+                {!isLoggedIn &&
                 <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
-                {user?.data!="NOTACTIVE"  && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
+                {isLoggedIn  && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
 
                 </div>
             </nav>
