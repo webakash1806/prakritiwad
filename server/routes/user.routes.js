@@ -52,7 +52,7 @@ router.get('/getpost',getPost)
 router.delete('/deletePost/:id',deletePost);
 
 
-router.post('/addQueryPost',addPostQuery)
+router.post('/addQueryPost',upload.single("aadharCard"),addPostQuery)
 router.get('/getQueryPost',getPostQuery)
 router.delete('/deleteQueryPost/:id',deletePostQuery);
 

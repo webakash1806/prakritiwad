@@ -1,25 +1,15 @@
 import PostQuery from "../models/post.query.model.js";
 import AppError from "../utils/error.utils.js";
+import cloudinary from 'cloudinary'
+import fs from 'fs/promises'
 
  const addPostQuery=async(req,res,next)=>{
 try{    
-  console.log(req.body);
-  const {title,description,fullName,phoneNumber,email,aadharCard}=req.body
+  const {title,description,fullName,phoneNumber,email}=req.body
 
-  console.log(title);
-
-  if(!title || !description || !fullName || !phoneNumber || !email || !aadharCard){
+  if(!title || !description || !fullName || !phoneNumber || !email ){
     return next(new AppError("All field are Required",400))
   }
-
-  // if(fullName.length>4){
-  //   return next(new AppError("Full Name is  not Valid",400))
-  // }
-  console.log(fullName.length);
-  // if(phoneNumber.length!=10)
-  // {
-  //   return next(new AppError("Phone Number is not Valid",400))
-  // }
 
   if(title.length<10){
     return next(new AppError("Title is not Valid",400))
@@ -35,11 +25,40 @@ try{
     fullName,
     phoneNumber,
     email,
-    aadharCard
+    aadharCard:{
+      public_id: '',
+      secure_url: ''
+     } ,
  })
+
+
  if(!postQuery){
     return next(new AppError("Post Query is not Valid",400))
  }
+
+
+ if(req.file){
+  try{
+      const result = await cloudinary.v2.uploader.upload(req.file.path, {
+          folder: 'lms',
+          width: 250,
+          height: 250,
+          gravity: 'faces',
+          crop: 'fill',
+      })
+
+      if (result) {
+          postQuery.aadharCard.public_id = result.public_id
+          postQuery.aadharCard.secure_url = result.secure_url
+          // Removing the temporary file after upload
+          console.log("mai chala ya nahi");
+          fs.rm(`uploads/${req.file.filename}`)
+      }
+  }catch(err){
+     return next(new AppError(err.message,500))
+  }
+}
+
  await postQuery.save()
 
  res.status(200).json({

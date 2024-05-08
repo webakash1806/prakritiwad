@@ -36,7 +36,7 @@ const register = async (req, res, next) => {
     try {
         // Extracting user input from request body
         const { fullName, email, password, confirmPassword, phoneNumber } = req.body
-
+        console.log(req.body);     
         // Validating required fields
         if (!fullName || !email || !password || !confirmPassword || !phoneNumber) {
             return next(new AppError('All Fields are required', 400))
