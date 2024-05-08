@@ -3,7 +3,7 @@ import AuthHeader from "./AuthHeader"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { LoginAccount } from "../../redux/slice/AuthSlice"
-
+import { Link } from "react-router-dom"
 const Login = () => {
     
     const dispatch=useDispatch()
@@ -64,6 +64,9 @@ const Login = () => {
                 <input type="password" required name='password' id='password' placeholder='Enter your Password' className='bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.password}  />
                 </div>
                 <button type="submit"   className='text-center bg-[#A22EFF] rounded-md p-2 m-[1rem_0.5rem] xs:m-[1rem_1.5rem] hover:bg-[#bd4aff] duration-300 text-white'>Login</button>
+                
+                <Link to={"/forget"}  className="text-red-500 ">Forget Password</Link>
+              
             </form>
         </div>
     )
