@@ -19,6 +19,9 @@ const Header = () => {
 
     const isLoggedIn=useSelector((state)=>state?.auth?.isLoggedIn)
     const role=useSelector((state)=>state?.auth?.role)
+    const user=useSelector((state)=>state?.auth) 
+
+    console.log(user);
 
     console.log(isLoggedIn);
     console.log(role);
@@ -119,21 +122,21 @@ const Header = () => {
                 </div>
 
                 <div className='flex flex-col items-center justify-center gap-2 lg:flex-row'>
-                {isLoggedIn && role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
+                {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
                 lg:hover:border-b-2 bg-white font-[550]
                 pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
                  border-b-[1px] '>एडमिन पोस्ट</Link>}
-                  {isLoggedIn && role=="ADMIN" && <Link  to="/post/query"   className='text-black text-[1rem] 
+                  {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/post/query"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
                 lg:hover:border-b-2 bg-white font-[550]
                 pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
                  border-b-[1px] '>अनुरोध</Link>}
-                {isLoggedIn && role=="ADMIN" && <Link  to="/viewPost"   className='text-black text-[1rem] 
+                {user?.data!="NOTACTIVE" && user?.role=="ADMIN"&& <Link  to="/viewPost"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
                 lg:hover:border-b-2 bg-white font-[550]
@@ -143,9 +146,9 @@ const Header = () => {
                  duration-200 cursor-pointer 
                  border-b-[1px]'>
                  डैशबोर्ड</Link>}
-                {!isLoggedIn &&
+                {user?.data!="NOTACTIVE" &&
                 <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
-                {isLoggedIn && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
+                {user?.data==="NOTACTIVE"  && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
 
                 </div>
             </nav>
