@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { LoginAccount } from "../../redux/slice/AuthSlice"
 import { Link } from "react-router-dom"
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
 const Login = () => {
     
     const dispatch=useDispatch()
@@ -14,6 +15,7 @@ const Login = () => {
         email:"",
         password:""
     })
+    const [showPassword, setShowPassword] = useState(false);
 
     function handleUserInput(e){
         const {name,value}=e.target
@@ -22,6 +24,7 @@ const Login = () => {
          [name]:value
         })
      }
+
 
      async function Login(event){
         console.log("ayush");
@@ -59,9 +62,12 @@ const Login = () => {
                     <label htmlFor="email" className='font-semibold'>Email</label>
                    <input type="email" required name='email' id='email' placeholder='Enter your email' className='w-full bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.email} />
                 </div>
-                <div className="flex flex-col items-start m-[0.5rem] xs:m-[0.5rem_1.5rem] font-[500]">
-                <label htmlFor="password" className='font-semibold'>Password</label>
-                <input type="password" required name='password' id='password' placeholder='Enter your Password' className='w-full bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.password}  />
+                <div className="flex relative flex-col items-start justify-center gap-[0.5px]">
+                     <label htmlFor="password" className='font-semibold'>Password</label>
+                     <input  type={showPassword ? "text" : "password"} required name='password' id='password' placeholder='Enter your Password' className='w-full bg-transparent border rounded-md px focus:none' onChange={handleUserInput} value={loginData.password}  />
+                     <div className='absolute right-[0.1rem] bg-[#FFFFFF] top-[1.41rem] p-[6px] ' onClick={() =>setShowPassword(!showPassword)}>
+                        {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                    </div>
                 </div>
                 <button type="submit"   className='text-center bg-[#A22EFF] rounded-md p-2 m-[1rem_0.5rem] xs:m-[1rem_1.5rem] hover:bg-[#bd4aff] duration-300 text-white'>Login</button>
                 
