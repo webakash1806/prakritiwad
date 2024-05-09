@@ -85,7 +85,7 @@ const Header = () => {
                 
                  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
-                 border-b-[1px] flex items-center justify-center gap-1' tabIndex={0} role="button">प्रकृतिवाद साहित्य<IoIosArrowDown /></div>
+                 border-b-[1px] flex items-center justify-center gap-1' tabIndex={0} role="button">प्रकृतिवादी साहित्य<IoIosArrowDown /></div>
                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-1 shadow bg-base-100 w-full lg:w-[16rem] overflow-x-hidden border-none lg:h-fit lg:overflow-hidden h-[11rem] overflow-scroll">
                                 <li className='flex flex-col gap-1 bg-white' onClick={hamActive}>
                                     <Link to={'/coming'} >कविताएँ</Link>
