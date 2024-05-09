@@ -32,7 +32,7 @@ const Header = () => {
     { url: "/contact", "list": "संपर्क" },
     { url: "/घटनाएं", "list": "घटनाएं" },
     { url: "/पत्रिका", "list": "पत्रिका" },
-    { url: "/अख़बार", "list": "प्रकृति पर -आज की खबर!" }
+    { url: "/coming", "list": "प्रकृति पर -आज की खबर!" }
     ]
 
     async function handleLogout() {
@@ -44,7 +44,7 @@ const Header = () => {
     } 
 
     return (
-        <header className='flex w-full  bg-white   lg:px-8 lg:p-3 px-6 sm:px-10 text-black items-center justify-between z-[1000] py-[6px] shadow-[-1px_1px_7px_#000] fixed top-0 left-0'>
+        <header className='flex w-full  bg-white   lg:px-8 lg:p-3 px-6 sm:px-10 text-black items-center justify-between z-[1000] py-[6px] shadow-[-1px_1px_7px_#000] fixed top-0 left-0  '>
             <div className=' w-[2rem] h-[2rem] flex items-center justify-center lg:hidden cursor-pointer text-[#bd4aff]' onClick={hamActive}>
                 {barActive ? <RxHamburgerMenu className='text-[1.3rem]' />
                     : <RxCross1 className='text-[1.3rem]' />}
@@ -53,10 +53,10 @@ const Header = () => {
                 <img src={logo} alt="" className='size-[2.5rem]' />
                 <p className='text-[1.2rem] font-semibold text-[#3cac1a]'>प्रकृतिवाद</p>
                 </Link>
-            <nav className={` text-white z-[1000] bg-white lg:border-0 shadow-[0px_160px_1000px_#12073ac5] lg:shadow-none flex border-t-[#201154] border-t-2  p-4 pb-10 lg:p-0 h-[100vh] lg:h-fit w-screen lg:max-w-[80vw]  items-center lg:justify-between gap-3 lg:gap-[2rem] flex-col absolute 
+            <nav className={` text-white z-[1000] bg-white lg:border-0 shadow-[0px_160px_1000px_#12073ac5] lg:shadow-none flex border-t-[#201154] border-t-2  p-4 pb-10 lg:p-0 h-[100vh] lg:h-fit w-screen lg:max-w-[80vw]  items-center lg:justify-between  lg:gap-[2rem] flex-col absolute 
             ${barActive ? "top-[3.3rem]  left-[-70rem] duration-[0.5s]" : "top-[3.3rem]  left-0 duration-[0.5s] "}
              lg:flex-row lg:static `}>
-                <div className="flex z-[1000] flex-col gap-3 bg-white lg:flex-row lg:gap-0  ">
+                <div className="flex z-[1000] flex-col gap-3 bg-white lg:flex-row lg:gap-[0.4rem]  ">
                     {useHeaderList.map((val, ind) => {
                         return (<NavLink onClick={() => setBarActive(true)} key={ind + 1} style={({ isActive }) => ({
                             color: isActive ? '#c35dfe' : 'black'
@@ -120,9 +120,80 @@ const Header = () => {
                         </div>
                     </NavLink>
                 </div>
+                
+                <NavLink >
+                        <div className="text-black dropdown dropdown-hover ">
+                      
+                        {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <div className='text-[1rem] 
+                 tracking-wide 
+                w-[90vw] lg:w-fit text-center lg:border-0
+                lg:hover:border-b-2 bg-white font-semibold
+                pb-4 pt-1 lg:p-[3px] lg:m-[0px_6px]
+                
+                 border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                 duration-200 cursor-pointer 
+                 border-b-[1px] flex items-center justify-center gap-1' tabIndex={0} role="button">एडमिन<IoIosArrowDown /></div> }
+                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-1 shadow bg-base-100 w-full lg:w-[16rem] overflow-x-hidden border-none lg:h-fit lg:overflow-hidden h-[11rem] overflow-scroll">
+                            <li className='flex flex-col gap-5 bg-white'> 
+                            {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
+                            tracking-wider 
+                             w-[90vw] lg:w-fit text-center lg:border-0
+                            lg:hover:border-b-2 bg-white font-[550]
+                            pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                            duration-200 cursor-pointer 
+                             border-b-[1px] '>खबरें भेजें</Link>}
+
+                              {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
+                                    tracking-wider 
+                                    w-[90vw] lg:w-fit text-center lg:border-0
+                                    lg:hover:border-b-2 bg-white font-[550]
+                                    pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                                    duration-200 cursor-pointer 
+                                    border-b-[1px] '>एडमिन पोस्ट</Link>} 
+                                
+                                {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/post/query"   className='text-black text-[1rem] 
+                                    tracking-wider 
+                                       w-[90vw] lg:w-fit text-center lg:border-0
+                                     lg:hover:border-b-2 bg-white font-[550]
+                                     pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                                       duration-200 cursor-pointer 
+                                     border-b-[1px] '>अनुरोध</Link>}
+                                      {user?.data!="NOTACTIVE" && user?.role=="ADMIN"&& <Link  to="/अख़बार"   className='text-black text-[1rem] 
+                                   tracking-wider 
+                                          w-[90vw] lg:w-fit text-center lg:border-0
+                                           lg:hover:border-b-2 bg-white font-[550]
+                                              pb-2 lg:p-[3px] 
+                
+                                         border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                                          duration-200 cursor-pointer 
+                                        border-b-[1px]'>
+                                     प्रकृति पर -आज की खबर</Link>}
+                                 {user?.data!="NOTACTIVE" && user?.role=="ADMIN"&& <Link  to="/viewPost"   className='text-black text-[1rem] 
+                                   tracking-wider 
+                                          w-[90vw] lg:w-fit text-center lg:border-0
+                                           lg:hover:border-b-2 bg-white font-[550]
+                                              pb-2 lg:p-[3px] 
+                
+                                         border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                                          duration-200 cursor-pointer 
+                                        border-b-[1px]'>
+                                     डैशबोर्ड</Link>}
+
+                              </li>
+
+                            </ul>
+                            
+                        </div>
+                        {!isLoggedIn &&
+                <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
+                {isLoggedIn  && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
+
+                
+                    </NavLink>
+
 
                 <div className='flex flex-col items-center justify-center gap-2 lg:flex-row'>
-                {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
+                {/* {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
                 lg:hover:border-b-2 bg-white font-[550]
@@ -152,10 +223,10 @@ const Header = () => {
                  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
                  border-b-[1px]'>
-                 डैशबोर्ड</Link>}
-                {!isLoggedIn &&
+                 डैशबोर्ड</Link>} */}
+                {/* {!isLoggedIn &&
                 <Link to="/login" className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300'>लाग इन करें</Link>}
-                {isLoggedIn  && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>}
+                {isLoggedIn  && <button className='text-center w-[90vw] bg-[#A22EFF] rounded-lg lg:w-fit p-3 mt-6 lg:m-0  lg:p-[6px_10px] lg:rounded-[4px] lg hover:bg-[#bd4aff] duration-300' onClick={()=>handleLogout()}>Logout</button>} */}
 
                 </div>
             </nav>
