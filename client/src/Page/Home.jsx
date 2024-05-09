@@ -73,10 +73,10 @@ const Home = () => {
     
 
     return (
-        <div className='flex flex-col items-center justify-center overflow-x-hidden w-full'>
+        <div className='flex flex-col items-center justify-center w-full overflow-x-hidden'>
             <div className=' mt-10 h-[24rem] sm:h-[29rem] md:h-[32rem] hero-img text-white flex flex-col items-center justify-center pt-10  gap-3'>
-                <h1 className='font-[550] tracking-wider text-[2.8rem] font-lobster'>प्रकृतिवाद</h1>
-                <p className='font-[500] tracking-wide md:text-[1.6rem] text-[1.4rem] text-center'>वैकल्पिक जीवन की तलाश|
+                <h1 className='font-[550] tracking-wider text-[3.5rem] font-lobster'>प्रकृतिवाद</h1>
+                <p className='font-[500] tracking-wide md:text-[1.6rem] text-[1.2rem] text-center'>वैकल्पिक जीवन की तलाश
                 </p>
             </div>
             {/* <HomeDes data={items}/> */}

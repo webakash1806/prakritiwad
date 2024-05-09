@@ -36,7 +36,6 @@ const Header = () => {
     ]
 
     async function handleLogout() {
-        console.log("ayush");
         // e.preventDefault();
 
         const res = await dispatch(logout());
@@ -129,7 +128,7 @@ const Header = () => {
                 lg:hover:border-b-2 bg-white font-[550]
                 pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
                  duration-200 cursor-pointer 
-                 border-b-[1px] '>खबरें भेजें"</Link>}
+                 border-b-[1px] '>खबरें भेजें</Link>}
                 {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
