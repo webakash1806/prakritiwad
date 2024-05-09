@@ -16,6 +16,9 @@ import PostAdd from './PostAdd'
 import VideoPage from './Videos/VideoPage'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllPost } from '../redux/slice/PostSlice'
+import HomeDes from './HomeDes'
+import HomeDescCard from '../Components/HomeDescCard'
+
 
 const Home = () => {
 
@@ -23,6 +26,20 @@ const Home = () => {
     const navigate=useNavigate()
 
     let postData=useSelector((state)=>(state.post.postData))
+
+    const reversePost=postData.toReversed();
+    
+    console.log(reversePost);
+   
+    const items =reversePost.map((val, ind) => {
+        return (
+           <div key={ind + 1} className=''>
+             <HomeDescCard img={val?.thumbnail?.secure_url} />
+        </div>
+      )
+   })
+
+
 
     let currentData=new Date().toJSON().slice(0,10)
 
@@ -42,7 +59,7 @@ const Home = () => {
         })
 
     :null}   
-    console.log(postData);
+    // console.log(postData);
     // console.log(courseData);
     async function getPost(){
         const res= await dispatch(getAllPost())
@@ -55,18 +72,14 @@ const Home = () => {
     },[])
     
 
-
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // }, [])
-
     return (
-        <div className='flex flex-col items-center justify-center overflow-x-hidden'>
+        <div className='flex flex-col items-center justify-center overflow-x-hidden w-full'>
             <div className=' mt-10 h-[24rem] sm:h-[29rem] md:h-[32rem] hero-img text-white flex flex-col items-center justify-center pt-10  gap-3'>
                 <h1 className='font-[550] tracking-wider text-[2.8rem] font-lobster'>प्रकृतिवाद</h1>
-                <p className='font-[500] tracking-wide md:text-[1.6rem] text-[1.4rem] text-center'>प्रकृति की बातें समाधान और राहें |
+                <p className='font-[500] tracking-wide md:text-[1.6rem] text-[1.4rem] text-center'>वैकल्पिक जीवन की तलाश|
                 </p>
             </div>
+            {/* <HomeDes data={items}/> */}
             <div className='flex flex-col items-center justify-center gap-2 mt-8 lg:flex-row'>
                 <div className='flex flex-col gap-2 sm:flex-row'>
                     <Link to={`/${1}`} className='m-1 relative rounded-md overflow-hidden w-[19rem] h-[26rem]'>

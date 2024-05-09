@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/Image/logoPrak.png'
 import { logout } from '../redux/slice/AuthSlice';
+
 // import { logout } from '../../../server/controllers/user.controller';
 const Header = () => {
 
@@ -28,7 +29,6 @@ const Header = () => {
 
     const useHeaderList = [{ "url": "/", "list": "होम" },
 
-    { url: "/add/post", "list": "खबरें भेजें" },
     { url: "/contact", "list": "संपर्क" },
     { url: "/घटनाएं", "list": "घटनाएं" },
     { url: "/पत्रिका", "list": "पत्रिका" },
@@ -75,6 +75,7 @@ const Header = () => {
                             </div >
                         </NavLink>)
                     })}
+
                        <NavLink >
                         <div className="text-black dropdown dropdown-hover ">
                             <div className='text-[1rem] 
@@ -122,6 +123,13 @@ const Header = () => {
                 </div>
 
                 <div className='flex flex-col items-center justify-center gap-2 lg:flex-row'>
+                {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
+                 tracking-wider 
+                w-[90vw] lg:w-fit text-center lg:border-0
+                lg:hover:border-b-2 bg-white font-[550]
+                pb-2 lg:p-[3px]  border-grey hover:border-[#bd4aff] hover:text-[#c35dfe]
+                 duration-200 cursor-pointer 
+                 border-b-[1px] '>खबरें भेजें"</Link>}
                 {user?.data!="NOTACTIVE" && user?.role=="ADMIN" && <Link  to="/postAdd"   className='text-black text-[1rem] 
                  tracking-wider 
                 w-[90vw] lg:w-fit text-center lg:border-0
