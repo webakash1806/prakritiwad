@@ -37,9 +37,9 @@ const App = () => {
   }, [])
   return (
     <div className='flex flex-col items-center justify-between min-h-[100vh] bg-white text-black'>
-      <Header />
+{/*       <Header /> */}
       <Routes>
-        <Route path='/' element={<Home />} />
+{/*         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/add/post' element={<PostAdd />} />
         <Route path='/contact' element={<Contact />} />
@@ -50,16 +50,16 @@ const App = () => {
         <Route path="/post/:id" element={<PostPageDown />} />
         <Route path="/video" element={<VideoPage />} />
         <Route path="/घटनाएं" element={<GhatnaPage />} />
-        <Route path="/पत्रिका" element={<Patrika />} />
+        <Route path="/पत्रिका" element={<Patrika />} /> */}
         {/* esko sahi karna hai authenication laga k sahi karna hai */}
-        <Route path="/postAdd" element={<CreatePost/>} />
+{/*         <Route path="/postAdd" element={<CreatePost/>} />
         <Route path="/viewPost" element={<ViewPost/>} />
         <Route path="/post/detail" element={<DetailPost/>} />
         <Route path="/post/query" element={<RequestPost/>} />
         <Route path="/अख़बार" element={<Aakhbar/>} />
         <Route path="/forget" element={<Forget/>} />
         <Route path="/reset-password/:resetToken" element={<ResetPassword/>} />
-
+ */}
       </Routes>
       <MdKeyboardDoubleArrowUp onClick={handleScrollToTop} className=' text-white flex items-center justify-center rounded-full p-[0.6rem] bg-black fixed right-4 z-[100000] text-[2.7rem] bottom-4 shadow-sm shadow-white cursor-pointer' />
       <Footer />
